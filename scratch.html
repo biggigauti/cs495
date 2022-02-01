@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scratch</title>
+</head>
+<body>
+    <div>
+        <a href="/">Home</a>
+        <a href="/scratch">Scratch</a>
+        <a href="/about">About Us</a>
+    </div>
+
+    <form>
+        <p>Scratch Away!</p>
+        <textarea rows="10" cols="100" id="myArea"></textarea>
+        <!---<input type="text", id = "text", style="height:200px;width:200px;text-align:top;vertical-align:top;"> --->
+        <input type="reset", value="clear">
+        <input type="file", id="myFile">
+    </form>
+
+    <form>
+        <textarea rows="10" cols="100" id="myArea2"></textarea>
+        <!---<input type="text", id = "text", style="height:200px;width:200px;text-align:top;vertical-align:top;"> --->
+        <input type="reset", value="clear">
+        <input type="file", id="myFile2">
+    </form>
+
+    <!---#The code below is from the following source: https://stackoverflow.com/questions/33640325/load-text-from-local-txt-file-into-html-textarea-using-javascript
+    #Answer from Bobby Orndorff
+    #It is still not functional so I'm not considering this a part of my submission but would love some feedback and guidance on how to make this work.
+    --->
+
+    <script>
+        var file = document.getElementById("myFile").files[0];
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var textArea = document.getElementById("myArea");
+            textArea.value = e.target.result;
+        };
+        reader.readAsText(file);
+    </script>
+
+    <!--- #ignore
+    <script>
+        function textFile(this) {
+            Set fs = CreateObject("Scripting.FileSystemObject");
+            Set s = fs.CreateTextFile("/Users/birgirgauti/Desktop/test.txt", True); #True boolean operator indicates that the filename can be overwritten.
+
+            var text = document.getElementByID('text');
+            s.writeline(text);
+            s.Close();
+        }
+    </script>
+    --->
+</body>
+</html>
