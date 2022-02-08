@@ -17,7 +17,7 @@ def main():
 
     while True:
         entry = input("Enter the city (not case-sensitive) (type 'exit' to exit): ")  # get user input (license plate number)
-        print(entry.title())
+        #print(entry.title())
         if entry.lower() == "exit":
             exit()
         if entry.title() in cities:  # if input is included in numbers array, continue.
@@ -35,7 +35,7 @@ def main():
                 writeToText(newString)
                 df.append(lines2)  # add lines to empty array
                 cities.append(lines2[1])
-                print(cities)
+                #print(cities)
                 #print(df)
             else:
                 print("Ok. Please enter a new city.")
