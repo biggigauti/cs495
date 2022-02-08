@@ -40,7 +40,7 @@ def main():
             else:
                 print("Ok. Please enter a new city.")
 
-def writeToText(newCityEntry): #Used this class to write the initial text file.
+def writeToText(newCityEntry): #I use this to take new input and append to the end of the text file.
     with open('MontanaCounties.txt', 'a') as newText: #Open text file #a appends to the end of the file.
         newText.write(f'{newCityEntry}\n') #Write to text file
         #if using 'with open' file automatically closes
