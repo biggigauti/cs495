@@ -2,9 +2,11 @@ import javax.swing.*
 import kotlin.system.exitProcess
 
 fun UI() {
+    //Create jframe and set size
     val f = JFrame("Calculator")
     f.setSize(300, 500)
 
+    //Create Radiobuttons and add them to a group
     val rb1 = JRadioButton("+")
     rb1.setBounds(20, 50, 45, 30)
     val rb2 = JRadioButton("-")
@@ -19,6 +21,7 @@ fun UI() {
     bGroup.add(rb3)
     bGroup.add(rb4)
 
+    //Create text fields and j buttons
     val tf1 = JTextField()
     tf1.setBounds(10, 10, 280, 20)
 
@@ -31,11 +34,12 @@ fun UI() {
     val answer = JLabel("Enter numbers only")
     answer.setBounds(90, 180, 200, 20)
 
+    //The action listener pulls the contents of textfield1 and textfield2 and checks which radiobutton is activated
     b.addActionListener {
-        if (tf1.getText().toInt() is Int && tf2.getText().toInt() is Int) {
+        if (tf1.getText().toInt() is Int && tf2.getText().toInt() is Int) { //Grab the textfield input, convert to ints and confirm that they are ints.
             if (rb1.isSelected()) {
                 answer.setText((tf1.getText().toInt().plus(tf2.getText().toInt())).toString())
-            }
+            } //Turns objects into int forms, performs the math, converts them back to strings to display in answer label.
             if (rb2.isSelected()) {
                 answer.setText((tf1.getText().toInt().minus(tf2.getText().toInt())).toString())
             }
@@ -46,11 +50,9 @@ fun UI() {
                 answer.setText((tf1.getText().toInt().div(tf2.getText().toInt())).toString())
             }
         }
-        else {
-            answer.setText("Please insert numbers only")
-        }
     }
 
+    //Add all elements to the frame.
     f.add(rb1)
     f.add(rb2)
     f.add(rb3)
@@ -62,6 +64,7 @@ fun UI() {
     f.setLayout(null);
     f.setVisible(true);
 
+    //Exit conditions when "X" is hit, stop the program and when the "EXIT" button is hit do the same.
     f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     val exit = JButton("Exit")
